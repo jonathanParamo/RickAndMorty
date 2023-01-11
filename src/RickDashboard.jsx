@@ -21,7 +21,7 @@ export const RickDashboard = () => {
 
   const getListOfResidents = () => {
     const allResidents = location.map(({ residents }) => residents);
-    const firstResidentByGroup = allResidents.map( resi => resi[0]);
+    const firstResidentByGroup = allResidents.map( resident => resident[0]);
     return firstResidentByGroup;
   }
 
@@ -40,7 +40,7 @@ export const RickDashboard = () => {
     .then((result) => setListOfDataByResident(result));
 
   const hasData = location?.length > 0;
-    console.log('xxx seLlistOfDataByResident: ', listOfDataByResident);
+
   return (
     <div>
       <h1 className="title-dashboard">Rick y Morty</h1>
