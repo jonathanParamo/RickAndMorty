@@ -6,7 +6,7 @@ import "./index.css"
 
 export const RickDashboard = () => {
   const dispatch = useDispatch()
-  const [dataPj, setDataPj] = useState([]);
+  const [listOfDataByResident, setListOfDataByResident] = useState([]);
 
   const {
     location = [],
@@ -15,37 +15,32 @@ export const RickDashboard = () => {
   } = useSelector( state => state.rickAndMorty )
 
   useEffect(() => {
-    dispatch( getLocation() );
-  }, [])
+    if (!location.length) dispatch(getLocation());
+    getResidentsData();
+  }, [location])
 
-  const callCaracter = () => {
-    const residente = location.map(({ residents }) => residents)
-    const peti = residente.map( resi => resi[0])
-    return peti
+  const getListOfResidents = () => {
+    const allResidents = location.map(({ residents }) => residents);
+    const firstResidentByGroup = allResidents.map( resi => resi[0]);
+    return firstResidentByGroup;
   }
 
-  const infoPj = () => {
-    const pj = callCaracter()
+  const getResidentsData = async () => {
     const regex = /(\d+)/g;
-    let url = pj.filter(urls => urls != undefined)
+    const urlResidentList = getListOfResidents();
+    let listOfUrls = urlResidentList.filter(url => url !== undefined);
 
-    Promise.all(url.map( element => { return rickApiCaracter.get("/"+element.match(regex))}))
-    .then(res => {
-      const inf = []
-
-      res.forEach(({data}) => {
-        // aqui tengo la data, pero al momento de querer guardarla en el state se crea un bucle,
-        // o si la retorno no sale del .then
-      });
-      inf
-    });
+    await location ? requestByResident(listOfUrls, regex): null;
   };
 
-  infoPj()
-    // setData((prevState) => [...prevState, response]);
-    // const response = peticion(residents[0]);
-  const hasData = location?.length > 0;
+  const requestByResident = (urlList, regex) => Promise.all(
+    urlList.map( url => { return rickApiCaracter.get("/"+url.match(regex))})
+  )
+    .then((response) => response.map(({ data }) => data))
+    .then((result) => setListOfDataByResident(result));
 
+  const hasData = location?.length > 0;
+    console.log('xxx seLlistOfDataByResident: ', listOfDataByResident);
   return (
     <div>
       <h1 className="title-dashboard">Rick y Morty</h1>
