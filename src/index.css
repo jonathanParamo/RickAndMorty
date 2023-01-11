@@ -43,3 +43,8 @@ body {
   font-style: oblique;
   color: #000000;
 }
+
+.image-pj {
+  width: 200px;
+  height: 200px;
+}

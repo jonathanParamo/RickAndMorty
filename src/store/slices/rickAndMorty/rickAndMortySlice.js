@@ -5,7 +5,7 @@ export const rickAndMortySlice = createSlice({
   initialState: {
     page: 0,
     location: [],
-    residents: [],
+    resident: [],
     isLoading: false,
 },
   reducers: {
@@ -19,7 +19,7 @@ export const rickAndMortySlice = createSlice({
     },
     setResidents: (state, action) => {
       state.isLoading = false;
-      state.residents = action.payload.residents;
+      state.resident = action.payload.resident;
     },
   },
 })

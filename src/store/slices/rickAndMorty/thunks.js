@@ -19,6 +19,6 @@ export const getResidents = (link) => {
     // console.log(await rickApiCaracter.get("/"+link.match(regex)))
     const { data } = await rickApiCaracter.get("/"+link.match(regex));
     // console.log("data2:", data);
-    dispatch( setResidents({ residents: data }) )
+    dispatch( setResidents({ resident: data }) )
   }
 }
