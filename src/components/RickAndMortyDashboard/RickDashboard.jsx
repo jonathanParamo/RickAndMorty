@@ -2,11 +2,11 @@ import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { rickApiCaracter } from "../../api/rickAndMortyApi"
 import { getLocation } from "../../store/slices/rickAndMorty"
-// import { useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import "./index.css"
 
 export const RickDashboard = () => {
-  // const navigate = useNavigate()
+  const navigate = useNavigate()
   const dispatch = useDispatch()
   const [listOfDataByResident, setListOfDataByResident] = useState([]);
   const noImage = "https://encrypted-tbn0.gstatic.com/images?q=tbn"+
@@ -54,6 +54,17 @@ export const RickDashboard = () => {
       return image
     }
   })
+
+  const redirect = (id) =>{
+    navigate(`dimension/${id}`)
+  }
+
+  const validateDimension = (id) => {
+    const idDimension = location.map(({id}) => id)
+    if(idDimension.includes(id)) {
+      redirect(id)
+    }
+  }
   const hasData = location?.length > 0;
   return (
     <header className="container-card">
@@ -69,6 +80,7 @@ export const RickDashboard = () => {
             <section
               className="section-card"
               key={id}
+              onClick={() => validateDimension(id)}
             >
               <img  className="img-card" src={image[id] || noImage } key={id} />
               <h3 className="card-dimension">Dimension: {dimension}</h3>

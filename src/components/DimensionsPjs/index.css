@@ -1,3 +1,37 @@
-.hola {
+.container-cards-pjs {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  overflow-y: auto;
+  justify-content: center;
+  align-items: flex-start;
   color: #f5f5f5;
+}
+
+.dimension-name {
+  width: 100%;
+}
+
+.card-pj {
+  width: 260px;
+  border: 1px solid #f5f5f5;
+  border-radius: 10px;
+  margin: 15px 20px;
+  transition: 0.5s;
+}
+
+.card-pj:hover {
+  box-shadow: 0px 0px 10px 10px #03045e;
+}
+
+.image-pj {
+  width: 90%;
+  margin: 10px;
+  border-radius: 5px;
+  object-fit: cover;
+}
+
+.text-pj {
+  margin: 5px;
 }

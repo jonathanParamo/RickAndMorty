@@ -15,8 +15,9 @@ function App() {
       <Title />
       <BrowserRouter>
         <Routes>
-          <Route path="dashboard" element={<RickDashboard />} />
-          <Route  path="dimension" element={<DimensionPjs />} />
+          <Route path="/dashboard/*" element={<RickDashboard />} />
+          <Route path="*" element={<RickDashboard /> } />
+          <Route  path="dimension/:id" element={<DimensionPjs />} />
         </Routes>
       </BrowserRouter>
     </main>
