@@ -7,12 +7,14 @@ import {
 import { RickDashboard } from './components/RickAndMortyDashboard/RickDashboard'
 import { DimensionPjs } from './components/DimensionsPjs'
 import { Title } from "./components/Title"
+import { MainMenu } from './components/MainMenu'
 
 function App() {
 
   return (
     <main className="main-container">
       <Title />
+      <MainMenu />
       <BrowserRouter>
         <Routes>
           <Route path="/dashboard/*" element={<RickDashboard />} />

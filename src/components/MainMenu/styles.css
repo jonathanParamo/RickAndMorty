@@ -1,0 +1,32 @@
+.main-menu-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.search-container {
+  width: 25%;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  background-color: #000000;
+  border: 1px solid #76c893;
+  border-radius: 5px;
+}
+
+.search-input {
+  width: 85%;
+  height: 30px;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #76c893;
+  font-size: 19px;
+  padding-left: 10px;
+}
+
+::placeholder {
+  color: #76c893;
+}
