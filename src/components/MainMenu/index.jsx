@@ -1,16 +1,18 @@
 import { Button, ButtonGroup } from "@mui/material";
 import SearchIcon from '@mui/icons-material/Search';
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { getPjRickApi } from "../../api/rickAndMortyApi";
 import "./styles.css"
 
 export const MainMenu = () => {
-  const navigate = useNavigate()
   const [ search, setSearch ] = useState("")
+  const [ pjs, setPjs ] = useState([])
 
 
-  const redirect2 = (search) =>{
-    navigate(`/${search}`)
+  const redirect2 = async (search) => {
+    const pjs = await getPjRickApi.get(`?name=${search}`)
+    .then(({data}) => data )
+    .then(({results}) => setPjs(results))
   }
 
   return (
@@ -23,7 +25,7 @@ export const MainMenu = () => {
           onChange={(e) => setSearch(e.target.value)}
         />
         <Button
-          onClick={redirect2(search)}
+          onClick={() => redirect2(search)}
         >
           <SearchIcon sx={{color: "#76c893"}} />
         </Button>
