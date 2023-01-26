@@ -3,9 +3,12 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getLocation } from "../../store/slices/rickAndMorty"
 import { rickApiCaracter } from "../../api/rickAndMortyApi";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { PjCard } from "../PjCard";
+import { Button } from "@mui/material";
 
 export const DimensionPjs = () => {
+  const navigate = useNavigate()
   const { id } = useParams()
   const dispatch = useDispatch()
   const [listOfDataByResident, setListOfDataByResident] = useState([]);
@@ -59,37 +62,45 @@ export const DimensionPjs = () => {
       return locationName
     }
 
-    const [name] = locationName()
-
-    const hasData = listOfDataByResident && listOfDataByResident.length > 0
+  const [name] = locationName()
+  const hasData = listOfDataByResident && listOfDataByResident.length > 0;
 
   return (
-    <header className="container-cards-pjs">
-      {
-        <h3 className="dimension-name">Dimension: {name}</h3>
-      }
-      {
-        hasData ? listOfDataByResident.map(({
-          id,
-          gender,
-          image,
-          name,
-          species,
-          status,
-          type
-        }) => {
-          return (
-            <section className="card-pj" key={id}>
-              <img className="image-pj" src={image} />
-              <h5>Name: {name}</h5>
-              <p className="text-pj">Gender: {gender}</p>
-              <p className="text-pj">Species: {species}</p>
-              <p className="text-pj">Type: {type}</p>
-              <p className="text-pj">Status: {status}</p>
-            </section>
-          )
-        }) : <h5>This dimension has no characters</h5>
-      }
-    </header>
+    <>
+      <header className="container-cards-pjs">
+        {
+          <h3 className="dimension-name">Dimension: {name}</h3>
+        }
+        {
+          hasData ? listOfDataByResident.map(({
+            id,
+            gender,
+            image,
+            name,
+            species,
+            status,
+            type
+          }) => {
+            return (
+              <PjCard
+                id={id}
+                gender={gender}
+                image={image}
+                name={name}
+                species={species}
+                status={status}
+                type={type}
+              />
+            )
+          }) : <h5>This dimension has no characters</h5>
+        }
+      </header>
+      <Button
+        onClick={() => navigate("../")}
+        sx={{ color: "#76c893" }}
+      >
+        Back
+      </Button>
+    </>
   )
 }

@@ -1,19 +1,19 @@
 .main-menu-container {
   width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   margin: 10px 0;
 }
 
 .search-container {
-  width: 25%;
-  height: 34px;
+  width: 90%;
   display: flex;
   align-items: center;
-  background-color: #000000;
+  background-color: transparent;
   border: 1px solid #76c893;
   border-radius: 5px;
+  margin-left: 1rem;
 }
 
 .search-input {

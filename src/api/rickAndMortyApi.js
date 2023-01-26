@@ -7,7 +7,3 @@ export const rickApi = axios.create({
 export const rickApiCaracter = axios.create({
   baseURL: "https://rickandmortyapi.com/api/character"
 });
-
-export const getPjRickApi = axios.create({
-  baseURL: "https://rickandmortyapi.com/api/character"
-})
