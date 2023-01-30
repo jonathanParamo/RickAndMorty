@@ -1,0 +1,24 @@
+.container-title {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.title-dashboard {
+  text-align: center;
+  font-family: Vegur, 'PT Sans', Verdana, sans-serif;
+  font-style: oblique;
+  color: #76c893;
+  margin: 0 10px;
+}
+
+.title-dashboard:hover {
+  background-image: linear-gradient(to right, #000000, #ffffff30, #000000, #ffffff40 );
+  animation:slidebg 3s linear infinite;
+}
+
+@keyframes slidebg {
+  to {
+    background-position:20vw;
+  }
+}
