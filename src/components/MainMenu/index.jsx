@@ -31,8 +31,8 @@ export const MainMenu = () => {
       return;
     }
 
-    navigate("/")
     setOpen(false);
+    navigate("/")
   };
 
   function handleListKeyDown(event) {
@@ -55,6 +55,7 @@ export const MainMenu = () => {
   }, [open]);
 
   const redirect = (search) => {
+    setOpen(false)
     navigate(`search/${search}`)
   }
 
@@ -107,7 +108,6 @@ export const MainMenu = () => {
               sx={{
                 display: { sm: "block", md: "none" },
                 color: "#76c893",
-                display: "flex",
                 justifyItems: "center",
                 width: "39px",
                 height: "39px"
@@ -145,7 +145,7 @@ export const MainMenu = () => {
                   sx={{
                     flexDirection: "row",
                     color: "#76c893",
-                    background: "#3e5c7690",
+                    background: "#000000",
                     width: "90%"
                   }}
                 >
@@ -156,11 +156,17 @@ export const MainMenu = () => {
                       aria-labelledby="composition-button"
                       onKeyDown={handleListKeyDown}
                       >
-                      <MenuItem onClick={handleClose}>
+                      <MenuItem onClick={() => {
+                        setOpen(false)
+                        navigate("/")
+                      }}>
                         <HomeIcon sx={{ color: "#76c893", marginRight: "5px" }}/>
                         Home
                       </MenuItem>
-                      <MenuItem onClick={handleClose}>
+                      <MenuItem onClick={() => {
+                        navigate("/avatars")
+                        setOpen(false)
+                      }}>
                         <Diversity3Icon sx={{ color: "#76c893", marginRight: "5px" }} />
                         Avatars
                       </MenuItem>
@@ -174,7 +180,6 @@ export const MainMenu = () => {
                         <Button
                           onClick={() => {
                             redirect(search)
-                            handleClose()
                           }}
                         >
                           <SearchIcon sx={{ color: "#76c893" }} />
