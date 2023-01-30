@@ -12,7 +12,7 @@ export const PjCard = ({
   return (
     <section className="card-pj" key={id}>
       <img className="image-pj" src={image} />
-      <h5>Name: {name}</h5>
+      <h4>Name: {name}</h4>
       <p className="text-pj">Gender: {gender}</p>
       <p className="text-pj">Species: {species}</p>
       <p className="text-pj">Type: {type}</p>

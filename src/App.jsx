@@ -5,16 +5,16 @@ import {
   Router,
   Route,
   Routes
-} from "react-router-dom"
-import { RickDashboard } from './components/RickAndMortyDashboard/RickDashboard'
-import { DimensionPjs } from './components/DimensionsPjs'
-import { Title } from "./components/Title"
-import { MainMenu } from './components/MainMenu'
-import { Search } from './components/Search'
-import { Box } from '@mui/material'
+} from "react-router-dom";
+import { RickDashboard } from './components/RickAndMortyDashboard/RickDashboard';
+import { DimensionPjs } from './components/DimensionsPjs';
+import { Title } from "./components/Title";
+import { MainMenu } from './components/MainMenu';
+import { Search } from './components/Search';
+import { Box } from '@mui/material';
+import { Avatars } from './Pages/Avatars';
 
 function App() {
-
   return (
     <main className="main-container">
       <Router>
@@ -34,6 +34,7 @@ function App() {
             <Route path="*" element={<RickDashboard /> } />
             <Route path="dimension/:id" element={<DimensionPjs />} />
             <Route path="search/:search" element={<Search />} />
+            <Route path="avatars" element={<Avatars />} />
           </Route>
         </Routes>
       </Router>
