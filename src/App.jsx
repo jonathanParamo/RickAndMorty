@@ -6,7 +6,7 @@ import {
   Route,
   Routes
 } from "react-router-dom";
-import { RickDashboard } from './components/RickAndMortyDashboard/RickDashboard';
+import { RickDashboard } from './Pages/RickAndMortyDashboard/RickDashboard';
 import { DimensionPjs } from './Pages/DimensionsPjs';
 import { Title } from "./components/Title";
 import { MainMenu } from './pages/MainMenu';
