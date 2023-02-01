@@ -13,12 +13,12 @@ import Popper from '@mui/material/Popper';
 import MenuItem from '@mui/material/MenuItem';
 import MenuList from '@mui/material/MenuList';
 import Stack from '@mui/material/Stack';
-import "./styles.css"
-import { Title } from "../Title"
+import "./styles.css";
+import { Title } from "../../components/Title";
 
 export const MainMenu = () => {
-  const navigate = useNavigate()
-  const [ search, setSearch ] = useState("")
+  const navigate = useNavigate();
+  const [ search, setSearch ] = useState("");
   const [open, setOpen] = useState(false);
   const anchorRef = useRef(null);
 
@@ -32,7 +32,7 @@ export const MainMenu = () => {
     }
 
     setOpen(false);
-    navigate("/")
+    navigate("/");
   };
 
   function handleListKeyDown(event) {
@@ -55,8 +55,10 @@ export const MainMenu = () => {
   }, [open]);
 
   const redirect = (search) => {
-    setOpen(false)
-    navigate(`search/${search}`)
+    if(!search) return
+
+    setOpen(false);
+    navigate(`search/${search}`);
   }
 
   return (
