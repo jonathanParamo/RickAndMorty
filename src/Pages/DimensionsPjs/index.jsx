@@ -1,16 +1,16 @@
-import "./index.css"
+import "./styles.css";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getLocation } from "../../store/slices/rickAndMorty"
 import { rickApiCaracter } from "../../api/rickAndMortyApi";
 import { useNavigate, useParams } from "react-router-dom";
-import { PjCard } from "../PjCard";
+import { PjCard } from "../../components/PjCard";
 import { Button } from "@mui/material";
 
 export const DimensionPjs = () => {
-  const navigate = useNavigate()
-  const { id } = useParams()
-  const dispatch = useDispatch()
+  const navigate = useNavigate();
+  const { id } = useParams();
+  const dispatch = useDispatch();
   const [listOfDataByResident, setListOfDataByResident] = useState([]);
 
   const {
@@ -25,7 +25,7 @@ export const DimensionPjs = () => {
   const idDimension = parseInt(id)
 
   const getListOfResidents = () => {
-    const allResidents = []
+    const allResidents = [];
     location.map(({ id, residents }) => {
       if(id === idDimension) {
         return allResidents.push(residents)

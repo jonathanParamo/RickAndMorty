@@ -7,7 +7,7 @@ import {
   Routes
 } from "react-router-dom";
 import { RickDashboard } from './components/RickAndMortyDashboard/RickDashboard';
-import { DimensionPjs } from './components/DimensionsPjs';
+import { DimensionPjs } from './Pages/DimensionsPjs';
 import { Title } from "./components/Title";
 import { MainMenu } from './pages/MainMenu';
 import { Search } from './pages/Search';
