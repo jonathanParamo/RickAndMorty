@@ -9,19 +9,21 @@ export const Avatars = () => {
   const [ avatar, setAvatar ] = useState([]);
   const [ page, setPage ] = useState(1);
   const [ pages, setPages ] = useState(42);
+  const [ loading, setLoading ] = useState(false);
 
 
-  const avatars = async (page) => (
+  const avatars = async ( page ) => (
     rickApiCaracter.get(`/?page=${page}`)
     .then(({data}) => data)
     .then(({results}) => setAvatar(results))
     )
 
   useEffect(() => {
-    avatars(page);
+    avatars( page );
+    if( !avatar ) setLoading(true);
   }, [page])
 
-  const handleChange = ( event, value) => {
+  const handleChange = ( event, value ) => {
     setPage(value);
   };
 
@@ -38,6 +40,10 @@ export const Avatars = () => {
       alignItems: "flex-start",
       justifyContent: "center",
     }}>
+      {
+        !hasData &&
+        <LinearDeterminate loading={loading} />
+      }
       { hasData ? avatar.map(({
           id,
           gender,
