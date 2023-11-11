@@ -6,13 +6,13 @@ import {
   Route,
   Routes
 } from "react-router-dom";
-import { RickDashboard } from './Pages/RickAndMortyDashboard/RickDashboard';
-import { DimensionPjs } from './Pages/DimensionsPjs';
+import { RickDashboard } from './pages/RickAndMortyDashboard/RickDashboard';
+import { DimensionPjs } from './pages/DimensionsPjs';
 import { Title } from "./components/Title";
-import { MainMenu } from './Pages/MainMenu';
-import { Search } from './Pages/Search';
+import { MainMenu } from './pages/MainMenu';
+import { Search } from './pages/Search';
 import { Box } from '@mui/material';
-import { Avatars } from './Pages/Avatars';
+import { Avatars } from './pages/Avatars';
 
 function App() {
   return (
