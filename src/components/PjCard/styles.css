@@ -1,0 +1,31 @@
+.card-pj {
+  width: 250px;
+  height: 400px;
+  color: #f5f5f5;
+  border: 1px solid #f5f5f5;
+  border-radius: 5px;
+  margin: 10px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: 0.6s;
+}
+
+.card-pj:hover {
+  box-shadow: 0px 0px 10px 10px #76c89360;
+  background: #f5f5f515;
+  cursor: pointer;
+}
+
+.image-pj {
+  width: 200px;
+  box-sizing: border-box;
+  object-fit: cover;
+  border-radius: 5px;
+  margin: 10px 5px;
+}
+
+.text-pj {
+  margin: 5px;
+}
