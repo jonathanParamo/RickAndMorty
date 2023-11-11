@@ -1,16 +1,16 @@
-import { useEffect, useState } from "react"
-import { useDispatch, useSelector } from "react-redux"
-import { rickApiCaracter } from "../../api/rickAndMortyApi"
-import { getLocation } from "../../store/slices/rickAndMorty"
-import { useNavigate } from "react-router-dom"
-import "./index.css"
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { rickApiCaracter } from "../../api/rickAndMortyApi";
+import { getLocation } from "../../store/slices/rickAndMorty";
+import { useNavigate } from "react-router-dom";
+import "./styles.css";
 
 export const RickDashboard = () => {
-  const navigate = useNavigate()
-  const dispatch = useDispatch()
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [listOfDataByResident, setListOfDataByResident] = useState([]);
   const noImage = "https://encrypted-tbn0.gstatic.com/images?q=tbn"+
-  ":ANd9GcSmDAJQ4ep4I0VnYLlBzrzXFkuDB7Jm_l7P1g&usqp=CAU"
+  ":ANd9GcSmDAJQ4ep4I0VnYLlBzrzXFkuDB7Jm_l7P1g&usqp=CAU";
 
   const {
     location = [],
@@ -56,7 +56,7 @@ export const RickDashboard = () => {
   })
 
   const redirect = (id) =>{
-    navigate(`dimension/${id}`)
+    navigate(`dimension/${id}`);
   }
 
   const validateDimension = (id) => {
