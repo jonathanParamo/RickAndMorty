@@ -9,8 +9,8 @@ import {
 import { RickDashboard } from './Pages/RickAndMortyDashboard/RickDashboard';
 import { DimensionPjs } from './Pages/DimensionsPjs';
 import { Title } from "./components/Title";
-import { MainMenu } from './pages/MainMenu';
-import { Search } from './pages/Search';
+import { MainMenu } from './Pages/MainMenu';
+import { Search } from './Pages/Search';
 import { Box } from '@mui/material';
 import { Avatars } from './Pages/Avatars';
 

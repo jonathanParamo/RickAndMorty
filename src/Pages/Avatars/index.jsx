@@ -11,7 +11,6 @@ export const Avatars = () => {
   const [ pages, setPages ] = useState(42);
   const [ loading, setLoading ] = useState(false);
 
-
   const avatars = async ( page ) => (
     rickApiCaracter.get(`/?page=${page}`)
     .then(({data}) => data)
@@ -24,6 +23,7 @@ export const Avatars = () => {
   }, [page])
 
   const handleChange = ( event, value ) => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     setPage(value);
   };
 
