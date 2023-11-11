@@ -23,6 +23,7 @@ export const Avatars = () => {
   }, [page])
 
   const handleChange = ( event, value ) => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     setPage(value);
   };
 
