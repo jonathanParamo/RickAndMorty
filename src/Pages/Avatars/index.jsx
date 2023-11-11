@@ -55,6 +55,7 @@ export const Avatars = () => {
         }) => {
           return (
             <PjCard
+              key={id}
               id={id}
               gender={gender}
               image={image}
@@ -66,13 +67,22 @@ export const Avatars = () => {
           )
         }) : <Box>Sorry, no avatars found</Box>
       }
-      { hasData &&
-        <PaginationAvatars
-          handleChange={handleChange}
-          page={page}
-          pages={pages}
-        />
-      }
+      <Box
+        sx={{
+          width: "100%",
+          display: "flex",
+          justifyContent: "center",
+          marginTop: "10px"
+        }}
+      >
+        { hasData &&
+          <PaginationAvatars
+            handleChange={handleChange}
+            page={page}
+            pages={pages}
+          />
+        }
+      </Box>
     </Box>
   )
 }
